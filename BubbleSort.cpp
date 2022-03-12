@@ -1,38 +1,39 @@
-
-#include <vector>
+#include <bits/stdc++.h>
 #include <iostream>
-
+#include <vector>
 
 using namespace std;
-
-
-int main(){
-    int n,temp,c=0;
-    cin >> n;
-   int a[n];
-    for(int i=0;i<n;i++)
-        {
-        cin>>a[i];
-    }
-    for(int i=0;i<n-1;i++)
-    {
-        for(int j=0;j<n-i-1;j++)
-            {
-            if(a[j]>a[j+1])
-                {
-                temp=a[j];
-                a[j]=a[j+1];
-                a[j+1]=temp;
-                c++;
-            }
-        }
+void countSwaps(int a[],int size)
+{
+	int temp;
+	int numSwaps = 0;
     
-    if(c==0)
-        {
-        break;
-    }}
-    cout<<"Array is sorted in "<<c<<" swaps."<<endl;
-    cout<<"First Element:"<<" "<<a[0]<<endl;
-    cout<<"Last Element:"<<" "<<a[n-1]<<endl;
-    return 0;
+	for(int i=0;i<size;i++){
+		for(int j=i;j<size-1;j++){
+			if(a[i]>a[j+1]){
+				int temp=a[i];
+				a[i]=a[j+1];
+				a[j+1]=temp;
+				numSwaps++;
+			}
+		}
+	}
+	
+    int firstElement = a[0];
+    int lastElement = a[size -1];
+
+    cout<<"Array is sorted in "<<numSwaps<<" swaps."<<endl;
+	cout<<"First Element: "<<firstElement<<endl;
+	cout<<"Last Element: "<<lastElement<<endl;
+}
+
+int main()
+{
+	int size;
+	cin>>size;
+	int array[size];
+	for(int i=0;i<size;i++){
+		cin>>array[i];
+	}
+	countSwaps(array,size);
 }
