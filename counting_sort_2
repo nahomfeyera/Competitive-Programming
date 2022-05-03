@@ -26,13 +26,7 @@ vector<int> countingSort(vector<int> arr) {
 
     int k = maxx-minn+1;
 
-    vector<int> count;
-    count.reserve(k);
-    
-     for (int i =0; i < k; i++)
-     {
-         count.push_back(0);
-     }
+    vector<int> count(k);
 
 for(int i = 0; i < arr.size(); i++)
 {
