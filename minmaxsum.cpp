@@ -13,28 +13,21 @@ vector<string> split(const string &);
  */
 
 void miniMaxSum(vector<int> arr) {
-int minn = INT_MAX;
-    int maxx = INT_MIN;
-    for(int i = 0; i < arr.size(); i++)
-    {
-        if(minn > arr[i])
-        {minn = arr[i];} 
-        if(maxx < arr[i])
-        {maxx = arr[i];}
-    }
 
-int minsum = 0;
-int maxsum = 0;
+long long minsum = 0;
+long long maxsum = 0;
 
-for(int i=0; i<arr.size(); i++)
+sort(arr.begin(),arr.end());
+
+for(int i=0; i<5; i++)
 {
-    if(arr[i]!=maxx)
+    if(i!=0)
     {
-        minsum+=arr[i];
+       maxsum+=arr[i]; 
     }
-        if(arr[i]!=minn)
+        if(i!=4)
     {
-        maxsum+=arr[i];
+       minsum+=arr[i]; 
     }
 }
 
